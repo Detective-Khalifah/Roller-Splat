@@ -29,13 +29,14 @@ public class BallController : MonoBehaviour
         if (isTravelling)
         {
             ballRb.velocity = speed * travelDirection;
+            Debug.Log("Distance interval betwixt sphere and cube: " + Vector3.Distance(transform.position, nextCollisionPosition));
         }
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position - (Vector3.up/2), 0.05f);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position - (Vector3.up / 2), 0.05f);
         for (int i = 0; i < hitColliders.Length; i++)
         {
             GroundPiece ground = hitColliders[i].transform.GetComponent<GroundPiece>();
-            if(ground && !ground.isColoured)
+            if (ground && !ground.isColoured)
             {
                 ground.ChangeColour(solveColour);
             }
@@ -51,13 +52,14 @@ public class BallController : MonoBehaviour
             }
         }
 
+        // TODO: Find out why this doesn't stop this.gameObject from translating!
         if (isTravelling)
             return;
 
         if (Input.GetMouseButton(0))
         {
             swipePosCurrentFrame = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-            
+
             if (swipePosLastFrame != Vector2.zero)
             {
                 currentSwipe = swipePosCurrentFrame - swipePosLastFrame;
@@ -86,7 +88,7 @@ public class BallController : MonoBehaviour
             }
 
             swipePosLastFrame = swipePosCurrentFrame;
-        
+
         }
 
         if (Input.GetMouseButtonUp(0))

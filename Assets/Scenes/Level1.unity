@@ -1718,7 +1718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2fdc7a9a489704c94fa0a814ca4ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleton: {fileID: 0}
   allGroundPieces: []
 --- !u!4 &798931173
 Transform:
@@ -4516,6 +4515,10 @@ PrefabInstance:
     - target: {fileID: 8902916113566084968, guid: b30214ae4239e5d49be6f82c0916aca7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902916113566084971, guid: b30214ae4239e5d49be6f82c0916aca7, type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 8902916113566084972, guid: b30214ae4239e5d49be6f82c0916aca7, type: 3}
       propertyPath: m_Name
