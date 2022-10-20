@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager singleton;
 
     public GroundPiece[] allGroundPieces;
+    public TextMeshProUGUI completionText;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,10 @@ public class GameManager : MonoBehaviour
 
     private void NextLevel()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            completionText.gameObject.SetActive(true);
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
